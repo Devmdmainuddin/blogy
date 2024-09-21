@@ -9,6 +9,7 @@ const Navbar = () => {
         <nav>
             <div className=' bg-[#214252] py-6'>
                 <Container>
+                    {/* full width large  */}
                     <div className='flex justify-between items-center relative'>
                         <div className="logo ">
                             <Link><h3 className='text-xl font-medium capitalize text-white'>blogy </h3></Link>
@@ -27,7 +28,7 @@ const Navbar = () => {
                         </div>
 
                         <div >
-                            <input type="text" name="" className='py-2 px-3 border text-blue-500 outline-none ' id="" placeholder='search...' />
+                            <input type="text" name="" className='py-2 px-3 border border-[#9aa7b4] text-[#dcdfe2] outline-none bg-[#2b4b5b]' id="" placeholder='search...' />
                         </div>
                         <div className='inline-block md:hidden'>
                             <button onClick={() => setShow(!show)} ><IoMenu className='text-2xl text-[#dcdfe2]' /> </button>
@@ -44,9 +45,7 @@ const Navbar = () => {
                                 <li><Link> business</Link></li>
                                 <li><Link> politics</Link></li>
                             </ul>
-                        </div>
-
-
+                    </div>
                 </Container>
 
             </div>
