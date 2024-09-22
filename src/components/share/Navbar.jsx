@@ -7,7 +7,7 @@ const Navbar = () => {
     const [show, setShow] = useState(false)
     return (
         <nav>
-            <div className=' bg-[#214252] py-6'>
+            <div className=' bg-[#214252] py-6 overflow-hidden'>
                 <Container>
                     {/* full width large  */}
                     <div className='flex justify-between items-center relative'>
@@ -20,10 +20,10 @@ const Navbar = () => {
                             </div>
                             <ul className='md:flex gap-6'>
 
-                                <li className=''><Link>home</Link></li>
-                                <li><Link> culture </Link></li>
-                                <li><Link> business</Link></li>
-                                <li><Link> politics</Link></li>
+                                <li className=''><Link to='/'>home</Link></li>
+                                <li><Link to='/culture'> culture </Link></li>
+                                <li><Link to='/Business'> business</Link></li>
+                                <li><Link to='/politics'> politics</Link></li>
                             </ul>
                         </div>
 

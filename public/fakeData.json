@@ -1,0 +1,169 @@
+{
+    "posts": [
+      {
+        "id": 1,
+        "title": "The Art of Cooking",
+        "body": "Cooking is not just about feeding yourself; it's an art that brings people together. Learn how to make cooking a delightful experience.",
+        "tags": ["cooking", "lifestyle"],
+        "reactions": {"likes": 120, "dislikes": 5},
+        "views": 300,
+        "userId": 1,
+        "image": "https://i.ibb.co.com/3BsQcC8/ben03.jpg",
+        "category": "Lifestyle",
+        "author": "Jane Doe",
+        "date": "2024-09-01",
+        "readingTime": "5 min",
+        "comments": [
+          {
+            "id": 1,
+            "userId": 11,
+            "comment": "Great tips! Can't wait to try these recipes!",
+            "date": "2024-09-02"
+          },
+          {
+            "id": 2,
+            "userId": 12,
+            "comment": "I love cooking too! Thanks for sharing.",
+            "date": "2024-09-03"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Exploring the Mountains",
+        "body": "There's nothing like the thrill of hiking up a mountain and enjoying the breathtaking views. Here's my latest adventure!",
+        "tags": ["travel", "adventure"],
+        "reactions": {"likes": 200, "dislikes": 10},
+        "views": 450,
+        "userId": 2,
+        "image": "https://i.ibb.co.com/Nx0YgQG/ken-theimer-Po-E6-Q48-B-5k-unsplash.jpg",
+        "category": "Travel",
+        "author": "John Smith",
+        "date": "2024-09-05",
+        "readingTime": "7 min",
+        "comments": []
+      },
+      {
+        "id": 3,
+        "title": "Understanding Quantum Physics",
+        "body": "Quantum physics may seem complex, but it's a fascinating field that challenges our understanding of reality. Let's dive in!",
+        "tags": ["science", "physics"],
+        "reactions": {"likes": 95, "dislikes": 4},
+        "views": 150,
+        "userId": 3,
+        "image": "https://i.ibb.co.com/nLKpLBC/julius-dudenas-Jrq8-ONPnr-IU-unsplash.jpg",
+        "category": "Science",
+        "author": "Alice Johnson",
+        "date": "2024-09-10",
+        "readingTime": "6 min",
+        "comments": []
+      },
+      {
+        "id": 4,
+        "title": "The Joy of Gardening",
+        "body": "Gardening can be a therapeutic hobby that allows you to connect with nature. Discover the benefits of nurturing plants.",
+        "tags": ["gardening", "hobbies"],
+        "reactions": {"likes": 80, "dislikes": 2},
+        "views": 200,
+        "userId": 4,
+        "image": "https://i.ibb.co.com/VW5Tfbv/vasily-koloda-8-Cq-Dv-Puo-k-I-unsplash.jpg",
+        "category": "Hobbies",
+        "author": "Emily Davis",
+        "date": "2024-09-12",
+        "readingTime": "4 min",
+        "comments": []
+      },
+      {
+        "id": 5,
+        "title": "Tech Innovations in 2024",
+        "body": "This year has seen amazing technological advancements that could change our daily lives. Let's explore what's new!",
+        "tags": ["technology", "innovation"],
+        "reactions": {"likes": 150, "dislikes": 7},
+        "views": 350,
+        "userId": 5,
+        "image": "https://i.ibb.co.com/VW5Tfbv/vasily-koloda-8-Cq-Dv-Puo-k-I-unsplash.jpg",
+        "category": "Technology",
+        "author": "Robert Brown",
+        "date": "2024-09-15",
+        "readingTime": "8 min",
+        "comments": []
+      },
+      {
+        "id": 6,
+        "title": "Fitness for a Healthy Life",
+        "body": "Staying fit is essential for maintaining a healthy lifestyle. Here are some tips to get started and stay motivated.",
+        "tags": ["fitness", "health"],
+        "reactions": {"likes": 110, "dislikes": 3},
+        "views": 270,
+        "userId": 6,
+        "image": "https://i.ibb.co.com/VW5Tfbv/vasily-koloda-8-Cq-Dv-Puo-k-I-unsplash.jpg",
+        "category": "Health",
+        "author": "Sarah Wilson",
+        "date": "2024-09-20",
+        "readingTime": "5 min",
+        "comments": []
+      },
+      {
+        "id": 7,
+        "title": "The Power of Meditation",
+        "body": "Meditation can transform your mind and improve your overall well-being. Discover how to incorporate it into your daily routine.",
+        "tags": ["meditation", "wellness"],
+        "reactions": {"likes": 130, "dislikes": 8},
+        "views": 400,
+        "userId": 7,
+        "image": "https://i.ibb.co.com/VW5Tfbv/vasily-koloda-8-Cq-Dv-Puo-k-I-unsplash.jpg",
+        "category": "Wellness",
+        "author": "David Lee",
+        "date": "2024-09-22",
+        "readingTime": "6 min",
+        "comments": []
+      },
+      {
+        "id": 8,
+        "title": "Traveling on a Budget",
+        "body": "Traveling doesn't have to be expensive. Here are some tips for exploring the world on a budget without sacrificing fun.",
+        "tags": ["travel", "budget"],
+        "reactions": {"likes": 90, "dislikes": 1},
+        "views": 220,
+        "userId": 8,
+        "image": "https://i.ibb.co.com/VW5Tfbv/vasily-koloda-8-Cq-Dv-Puo-k-I-unsplash.jpg",
+        "category": "Travel",
+        "author": "Laura Green",
+        "date": "2024-09-25",
+        "readingTime": "5 min",
+        "comments": []
+      },
+      {
+        "id": 9,
+        "title": "The Future of Renewable Energy",
+        "body": "Renewable energy is becoming increasingly important for a sustainable future. Let's explore the latest trends and technologies.",
+        "tags": ["energy", "sustainability"],
+        "reactions": {"likes": 160, "dislikes": 6},
+        "views": 480,
+        "userId": 9,
+        "image": "https://i.ibb.co.com/VW5Tfbv/vasily-koloda-8-Cq-Dv-Puo-k-I-unsplash.jpg",
+        "category": "Energy",
+        "author": "Michael Scott",
+        "date": "2024-09-28",
+        "readingTime": "7 min",
+        "comments": []
+      },
+      {
+        "id": 10,
+        "title": "Creative Writing Tips",
+        "body": "Unlock your creativity with these essential tips for writing compelling stories. Perfect for aspiring writers!",
+        "tags": ["writing", "creativity"],
+        "reactions": {"likes": 140, "dislikes": 2},
+        "views": 330,
+        "userId": 10,
+        "image": "https://i.ibb.co.com/VW5Tfbv/vasily-koloda-8-Cq-Dv-Puo-k-I-unsplash.jpg",
+        "category": "Writing",
+        "author": "Angela White",
+        "date": "2024-09-30",
+        "readingTime": "6 min",
+        "comments": []
+      }
+    
+    ]
+  }
+  

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdOutlineEmail } from 'react-icons/md';
 import { IoIosCall } from 'react-icons/io';
+import { CiLocationArrow1 } from 'react-icons/ci';
 
 const FooterLi = ({ text, to, className }) => {
     return (
@@ -19,56 +20,56 @@ const FooterLi = ({ text, to, className }) => {
 
 const Footer = () => {
     return (
-        <footer className="bg-[#0A1333] relative">
-            <div className='flex items-center bg-white absolute left-1/2 -translate-x-1/2 rounded-b-xl pb-5 px-[50px]'>
-              <img className='w-[50px] h-[50px]' src="/image/logo.png" alt="" />  <h3 className='text-xl font-medium'> <span className='text-[#00B5FC] '>ITH</span> CROWDFUNDING</h3>
+        <footer className="bg-[url('/fot.svg')] bg-no-repeat bg-cover relative mt-[125px]">
+            <div className=' w-3/4 h-[200px] absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#94ecac]  rounded-xl '>
+
             </div>
             <Container>
-                <div className=" max-w-[1017px] mx-auto pt-[186px] pb-[90px]  flex flex-col md:flex-row items-center md:items-start justify-between gap-y-8">
+                <div className="  pt-[186px] pb-[90px]  flex flex-col md:flex-row justify-start items-start md:items-start md:justify-between gap-y-8">
                     <div className=" left  flex gap-x-5">
-                        <div className='icon'>
-                            <p className='text-[#FFCE1F] p-4 rounded-full border border-[#696C76]'><FaLocationDot /></p>
-                        </div>
                         <div className='content' >
-                            <h4 className='font-DM font-medium  text-[#00B5FC] '>Dirección</h4>
-                            <ul className='w-[185px] text-white mt-2'>
-                                <li>Parada do Courel 1</li>
+                            <h4 className='text-xl text-[#e3e4e8]  tracking-widest capitalize font-light my-4 relative    before:absolute before:-bottom-2.5 inline-block before:w-1/2 before:h-[2px] before:bg-red-500'>About Us</h4>
+                            <p className='max-w-[325px] text-[#e3e4e8] mt-2'>
+                                If you are going to use a passage of Lorem Ipsum you need to be sure there isn't anything embarrassing hidden in the middle of text </p>
+                            <h2 className='text-xl text-[#e3e4e8]  tracking-widest capitalize font-light my-4 relative    before:absolute before:-bottom-2.5 inline-block before:w-1/2 before:h-[2px] before:bg-red-500'>Popular Tag</h2>
+                            <div className='max-w-[325px] mt-3 '>
+                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500 text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'>travel </span>
+                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500  text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2  inline-block transition-all duration-500'>creative </span>
+                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500  text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'> fashion</span>
+                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500  text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'> food</span>
+                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500  text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'> ideas</span>
+                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500  text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'> life</span>
+                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500  text-center tracking-widest uppercase font-light p-2 border transition-all duration-500'> style</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className=" middle ">
+                        <h2 className='text-xl text-[#e3e4e8]  tracking-widest capitalize font-light my-4 relative    before:absolute before:-bottom-2.5 inline-block before:w-1/2 before:h-[2px] before:bg-red-500'>categories</h2>
+                        <ul className='mt-3 text-[#e3e4e8]'>
+                            <li className=''> <Link className='flex gap-2 items-center  text-[#e3e4e8]'><CiLocationArrow1 /> <span className='uppercase'>Audio</span></Link></li>
+                            <li className=''> <Link className='flex gap-2 items-center text-[#e3e4e8] '><CiLocationArrow1 /> <span className='uppercase'>Fashion</span></Link></li>
+                            <li className=''> <Link className='flex gap-2 items-center  text-[#e3e4e8]'><CiLocationArrow1 /> <span className='uppercase'>Story</span></Link></li>
+                            <li className=''> <Link className='flex gap-2 items-center  text-[#e3e4e8]'><CiLocationArrow1 /> <span className='uppercase'>Life Style</span></Link></li>
+                            <li className='text-[#e3e4e8]'> <Link className='flex gap-2 items-center text-[#e3e4e8] '><CiLocationArrow1 /> <span className='uppercase'>Travel</span></Link></li>
+
+                        </ul>
+                    </div>
+                    <div className=" right  flex gap-x-5">
+                        <div className='content' >
+                            <h4 className='text-xl text-[#e3e4e8]  tracking-widest capitalize font-light my-4 relative    before:absolute before:-bottom-2.5 inline-block before:w-1/2 before:h-[2px] before:bg-red-500'>Contact Info</h4>
+                            <ul className='w-[185px] text-[#e3e4e8] mt-2'>
+                                <li >Parada do Courel 1</li>
                                 <li>27325 Folgoso do Courel</li>
                                 <li>Lugo - Galicia</li>
                             </ul>
-                           
-                        </div>
-                    </div>
-                    <div className=" middle  flex gap-x-5">
-                        <div className='icon'>
-                            <p className='text-[#FFCE1F] p-4 rounded-full border border-[#696C76]'><MdOutlineEmail /></p>
-                        </div>
-                        <div className='content' >
-                            <h4 className='font-DM font-medium  text-[#00B5FC] '>Correo</h4>
-                            <ul className='w-[185px] text-white mt-2'>
-                                <li>info@ithcrowdfunding.org</li>
-                            </ul>
-                           
-                        </div>
-                    </div>
-                    <div className=" right  flex gap-x-5">
-                        <div className='icon'>
-                            <p className='text-[#FFCE1F] p-4 rounded-full border border-[#696C76]'><IoIosCall /></p>
-                        </div>
-                        <div className='content' >
-                            <h4 className='font-DM font-medium  text-[#00B5FC] '>contacto</h4>
-                            <ul className='w-[185px] text-white mt-2'>
-                                <li>(+34) 671 44 52 47</li>
-                                <li>(+34) 981 55 72 42</li>
-                            </ul>
-                     
+
                         </div>
                     </div>
                 </div>
 
             </Container>
-            <div className='w-full h-[1px] bg-[#696C76]'></div>
-            <p className='text-center text-[#696C76] py-[30px]'>Copyright ITHCROWDFUNDING.ORG - All Rights Reserved</p>
+            <div className='w-full h-[1px] bg-[#e3e4e8]'></div>
+            <p className='text-center text-[#e3e4e8] py-[30px]'>Copyright Blogs.ORG - All Rights Reserved</p>
 
 
         </footer>

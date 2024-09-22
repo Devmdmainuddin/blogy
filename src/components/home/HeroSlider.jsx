@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Container from '../share/Container';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -6,8 +6,36 @@ import 'swiper/css/pagination';
 import { Autoplay } from 'swiper/modules';
 import { FaUser } from 'react-icons/fa';
 import { MdAccessTime } from 'react-icons/md';
+import usePosts from '../../hook/usePosts';
+import { useEffect, useState } from 'react';
 
 const HeroSlider = () => {
+    const [posts] = usePosts()
+    const [lifeStyle, setLifeStyle] = useState([])
+    const [travel, setTravel] = useState([])
+    const [science, setScience] = useState([])
+    const [technology, setTechnology] = useState([])
+    const [health, setHealth] = useState([])
+    // const Lifestyle=posts.filter(item=>item.category === 'Lifestyle')
+
+    useEffect(() => {
+        if (posts.length > 0) {
+            const lifestylePosts = posts.filter((item) => item.category === 'Lifestyle');
+            const travelPosts = posts.filter((item) => item.category === 'Travel');
+            const sciencePosts = posts.filter((item) => item.category === 'Science');
+            const technologyPosts = posts.filter((item) => item.category === 'Technology');
+            const healthPosts = posts.filter((item) => item.category === 'Health');
+
+
+            setLifeStyle(lifestylePosts);
+            setTravel(travelPosts);
+            setScience(sciencePosts);
+            setTechnology(technologyPosts);
+            setHealth(healthPosts)
+
+        }
+    }, [posts]);
+
     return (
         // <div className='grid lg:grid-cols-3 md:grid-cols-2 md:grid-rows-3  grid-cols-1 lg:grid-rows-2  w-[300px bg-black'>
 
@@ -34,48 +62,28 @@ const HeroSlider = () => {
                         modules={[Autoplay]}
                         className="mySwiper"
                     >
-                        <SwiperSlide className='h-[220px]'>
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#ffc107] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
+                        {lifeStyle.slice(0, 4).map((item, idx) =>
+                            <SwiperSlide key={idx} className='h-[220px]'>
+                                <div
+                                    style={{
+                                        backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
+                                    }}
+                                    className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-cover bg-center bg-no-repeat">
+                                    <div className='p-6'>
+                                        <p className='category inline-block  text-white p-[2px] bg-[#ffc107] rounded-sm capitalize'>{item.category}</p>
+                                        <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title}</h2>
+                                        <div className='flex flex-col md:flex-row  gap-2 mt-3'>
+                                            <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>Sojib Rahman</span> </p>
+                                            <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>March 20, 2017</span></p>
 
+                                        </div>
                                     </div>
+
                                 </div>
+                            </SwiperSlide>
+                        )}
 
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className='h-[220px]'>
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#ffc107] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
 
-                                    </div>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className='h-[220px]'>
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#ffc107] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
                     </Swiper>
 
                 </div>
@@ -84,7 +92,7 @@ const HeroSlider = () => {
                         slidesPerView={1}
                         spaceBetween={false}
                         autoplay={{
-                            delay: 2000,
+                            delay: 3000,
                             disableOnInteraction: true,
                         }}
 
@@ -93,48 +101,28 @@ const HeroSlider = () => {
                         modules={[Autoplay]}
                         className="mySwiper"
                     >
-                        <SwiperSlide className='h-[220px]'>
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#4382FF] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
+                        {travel.slice(0, 4).map((item, idx) =>
+                            <SwiperSlide key={idx} className='h-[220px]'>
+                                <div
+                                    style={{
+                                        backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
+                                    }}
+                                    className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-cover bg-center bg-no-repeat">
+                                    <div className='p-6'>
+                                        <p className='category inline-block  text-white p-[2px] bg-[#ffc107] rounded-sm capitalize'>{item.category}</p>
+                                        <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title}</h2>
+                                        <div className='flex flex-col md:flex-row  gap-2 mt-3'>
+                                            <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>Sojib Rahman</span> </p>
+                                            <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>March 20, 2017</span></p>
 
+                                        </div>
                                     </div>
+
                                 </div>
+                            </SwiperSlide>
+                        )}
 
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className='h-[220px]'>
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#4382FF] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
 
-                                    </div>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className='h-[220px]'>
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#4382FF] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
                     </Swiper>
                 </div>
                 <div className=' lg:row-span-full lg:col-start-2 lg:col-end-3  md:col-span-2 md:row-start-1 h-[220px] lg:h-full'>
@@ -149,35 +137,30 @@ const HeroSlider = () => {
                         modules={[Autoplay]}
                         className="mySwiper h-full lg:h-full"
                     >
+
                         <SwiperSlide className="  ">
-                            <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#7ee4e4] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
+                            {science.map(item =>
+                                <div 
+                                style={{
+                                    backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
+                                }}
+                                className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow  bg-cover bg-center bg-no-repeat">
+                                    <div className='p-6'>
+                                        <p className='category inline-block  text-white p-[2px] bg-[#7ee4e4] rounded-sm capitalize'>category</p>
+                                        <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
+                                        <div className='flex flex-col md:flex-row  gap-2 mt-3'>
+                                            <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>Sojib Rahman</span> </p>
+                                            <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>March 20, 2017</span></p>
 
+                                        </div>
                                     </div>
-                                </div>
 
-                            </div>
+                                </div>
+                            )}
+
                             {/* <img src="/card.jpg" alt="" className='group-hover:scale-125  w-full h-full  object-cover transition-all duration-500' /> */}
                         </SwiperSlide>
-                        <SwiperSlide className="">
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#7ee4e4] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
 
-                                    </div>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
 
                     </Swiper>
 
@@ -198,48 +181,28 @@ const HeroSlider = () => {
                         modules={[Autoplay]}
                         className="mySwiper"
                     >
-                        <SwiperSlide className='h-[220px]'>
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#5236ff] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
+                        {technology.slice(0, 4).map((item, idx) =>
+                            <SwiperSlide key={idx} className='h-[220px]'>
+                                <div
+                                    style={{
+                                        backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
+                                    }}
+                                    className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-cover bg-center bg-no-repeat">
+                                    <div className='p-6'>
+                                        <p className='category inline-block  text-white p-[2px] bg-[#ffc107] rounded-sm capitalize'>{item.category}</p>
+                                        <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title}</h2>
+                                        <div className='flex flex-col md:flex-row  gap-2 mt-3'>
+                                            <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>Sojib Rahman</span> </p>
+                                            <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>March 20, 2017</span></p>
 
+                                        </div>
                                     </div>
+
                                 </div>
+                            </SwiperSlide>
+                        )}
 
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className='h-[220px]'>
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#5236ff] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
 
-                                    </div>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className='h-[220px]'>
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#5236ff] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
                     </Swiper>
                 </div>
                 <div className=' lg:row-span-2 lg:col-start-3 lg:col-end-4 '>
@@ -247,7 +210,7 @@ const HeroSlider = () => {
                         slidesPerView={1}
                         spaceBetween={false}
                         autoplay={{
-                            delay: 2000,
+                            delay: 3000,
                             disableOnInteraction: true,
                         }}
 
@@ -256,48 +219,28 @@ const HeroSlider = () => {
                         modules={[Autoplay]}
                         className="mySwiper"
                     >
-                        <SwiperSlide className='h-[220px]'>
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#28a745] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
+                        {health.slice(0, 4).map((item, idx) =>
+                            <SwiperSlide key={idx} className='h-[220px]'>
+                                <div
+                                    style={{
+                                        backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
+                                    }}
+                                    className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-cover bg-center bg-no-repeat">
+                                    <div className='p-6'>
+                                        <p className='category inline-block  text-white p-[2px] bg-[#ffc107] rounded-sm capitalize'>{item.category}</p>
+                                        <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title}</h2>
+                                        <div className='flex flex-col md:flex-row  gap-2 mt-3'>
+                                            <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>Sojib Rahman</span> </p>
+                                            <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>March 20, 2017</span></p>
 
+                                        </div>
                                     </div>
+
                                 </div>
+                            </SwiperSlide>
+                        )}
 
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className='h-[220px]'>
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#28a745] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
 
-                                    </div>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className='h-[220px]'>
-                        <div className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-[linear-gradient(180deg,hsla(0,0%,6%,0)_41.54%,hsla(0,0%,6%,.621)_72.29%,#101010),url('/card.jpg')] bg-cover bg-center bg-no-repeat">
-                                <div className='p-6'>
-                                    <p className='category inline-block  text-white p-[2px] bg-[#28a745] rounded-sm capitalize'>category</p>
-                                    <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600'/> By <span>Sojib Rahman</span> </p>
-                                        <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime  className='text-red-600'/>  <span>March 20, 2017</span></p>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
                     </Swiper>
                 </div>
             </div>
