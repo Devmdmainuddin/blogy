@@ -128,7 +128,7 @@ const Highlight = () => {
                                         <p className='flex items-center gap-1 text-[#282830] hover:text-[#7a7a85]'><FaComment /> <span>5</span></p>
                                     </div>
                                     <p className=' mt-3'>Progressively harness competitive partnerships vis-a-vis efficient users. Continually morph state of the art scenarios without client-focused infrastructures. Distinctively predominate one-to-one value whereas client-focused experiences. Conveniently simplify.</p>
-                                    <button className='mt-3 px-4 py-2 bg-slate-300 text-[#282830] hover:text-slate-300 hover:bg-[#282830] text-sm transition-all duration-500 uppercase rounded-md'>read more</button>
+                                  <Link > <button className='mt-3 px-4 py-2 bg-slate-300 text-[#282830] hover:text-slate-300 hover:bg-[#282830] text-sm transition-all duration-500 uppercase rounded-md'>read more</button></Link>  
                                 </div>
                             </div>
                             <div className='flex flex-col lg:flex-row gap-6 items-center  group lg:h-[248px] h-auto '>

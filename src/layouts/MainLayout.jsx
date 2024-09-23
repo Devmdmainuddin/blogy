@@ -8,24 +8,16 @@ import Footer from "../components/share/Footer";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Navbar></Navbar>
       <div className='bg-[#f4f4f4] py-4'>
-        <HeroSlider></HeroSlider>
-        <Hero></Hero>
-        <div className='max-w-[1520px] px-6 mx-auto flex flex-col md:flex-row justify-between gap-4 mt-10'>
-          <div className="main w-full md:w-3/4">
-            <Outlet></Outlet>
-          </div>
-          <div className="sidebar w-full md:w-1/4 ">
-            <Sidebar></Sidebar>
-          </div>
-        </div>
-        <NewsPost></NewsPost>
+     
+       <Outlet></Outlet>
+      </div>
         <Footer></Footer>
 
 
-      </div>
+      
 
     </div>
   );

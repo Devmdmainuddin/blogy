@@ -7,6 +7,10 @@ import Details from './pages/Details/Details';
 import Business from './pages/Business/Business';
 import Politics from './pages/Politics/Politics';
 import Culture from './pages/culture/Culture';
+import Dashboard from './layouts/Dashboard';
+import SignInForm from './pages/Authentication/SignInForm';
+import AddPost from './pages/dashboard/auther/AddPost';
+import Blogs from './pages/Blogs/Blogs';
 
 const router = createBrowserRouter([
   {
@@ -34,11 +38,31 @@ const router = createBrowserRouter([
         element: <Business />,
       },
       {
+        path: "/blogs",
+        element: <Blogs />,
+      },
+
+      {
         path: "/politics",
         element: <Politics />,
       },
+      {
+        path: "/login",
+        element: <SignInForm />,
+      },
+
     ],
   },
+  {
+    path:"/dashboard",
+    element:<Dashboard></Dashboard>,
+    children:[
+      {
+        path: "/dashboard/addpost",
+        element: <AddPost />,
+      },
+    ]
+  }
 ]);
 
 function App() {
