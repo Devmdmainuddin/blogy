@@ -9,6 +9,7 @@ import Politics from './pages/Politics/Politics';
 import Culture from './pages/culture/Culture';
 import Dashboard from './layouts/Dashboard';
 import SignInForm from './pages/Authentication/SignInForm';
+import Registation from './pages/Authentication/Registation'
 import AddPost from './pages/dashboard/auther/AddPost';
 import Blogs from './pages/Blogs/Blogs';
 
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <SignInForm />,
+      },
+      {
+        path: "/registation",
+        element: <Registation />,
       },
 
     ],

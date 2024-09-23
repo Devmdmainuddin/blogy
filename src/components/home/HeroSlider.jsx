@@ -139,8 +139,8 @@ const HeroSlider = () => {
                     >
 
                         <SwiperSlide className="  ">
-                            {science.map(item =>
-                                <div 
+                            {science.map((item,idx) =>
+                                <div key={idx}
                                 style={{
                                     backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
                                 }}

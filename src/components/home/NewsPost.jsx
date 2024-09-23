@@ -7,18 +7,18 @@ import Container from '../share/Container';
 import Heading from '../share/Heading';
 import { MdAccessTime } from 'react-icons/md';
 import { FaComment } from 'react-icons/fa';
-import { useGetPostsQuery } from '../../Feature/postsAPI/postApi';
+// import { useGetPostsQuery } from '../../Feature/postsAPI/postApi';
 import usePosts from '../../hook/usePosts';
 const NewsPost = () => {
     const[posts]=usePosts()
-   console.log(posts);
+
     // const { data, error, isLoading } = useGetPostsQuery();
 
     // if (isLoading) return <div>Loading...</div>;
     // if (error) return <div>Error loading posts: {error.message}</div>;
     
     return (
-        <section >
+        <section className='pb-16'>
 
             <Container>
 

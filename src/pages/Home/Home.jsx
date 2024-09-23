@@ -11,11 +11,12 @@ const Home = () => {
         <div >
             <HeroSlider></HeroSlider>
             <Hero></Hero>
-            <div className='max-w-[1520px] px-6 mx-auto flex flex-col md:flex-row justify-between gap-4 mt-10'>
+            <div className='max-w-[1520px]  mx-auto flex flex-col md:flex-row justify-between gap-4 mt-10'>
                 <div className="main w-full md:w-3/4">
                     <Highlight></Highlight>
+                    <FeaturePost></FeaturePost>
                 </div>
-                <div className="sidebar w-full md:w-1/4 ">
+                <div className="sidebar ">
                     <Sidebar></Sidebar>
                 </div>
             </div>

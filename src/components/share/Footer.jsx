@@ -20,10 +20,17 @@ const FooterLi = ({ text, to, className }) => {
 
 const Footer = () => {
     return (
-        <footer className="bg-[url('/fot.svg')] bg-no-repeat bg-cover relative mt-[125px]">
-            <div className=' w-3/4 h-[200px] absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#94ecac]  rounded-xl '>
+        <footer className="bg-[url('/fot.svg')] bg-no-repeat bg-cover  mt-[125px]">
+            <Container>
+         
+                <div className=' w-full relative bg-[#f4f4f4]'>
+                    <div className=' w-3/4 h-[200px] absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#94ecac]  rounded-xl '>
 
-            </div>
+                    </div>
+                </div>
+
+            </Container>
+
             <Container>
                 <div className="  pt-[186px] pb-[90px]  flex flex-col md:flex-row justify-start items-start md:items-start md:justify-between gap-y-8">
                     <div className=" left  flex gap-x-5">

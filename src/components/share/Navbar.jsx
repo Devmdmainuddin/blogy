@@ -38,8 +38,8 @@ const Navbar = () => {
                         </div>
                     </div>
                     <div className={`hidden md:flex gap-2 p-4 z-[100]   capitalize text-[#dcdfe2]  bg-[#808182]   absolute top-[72px] transition-all duration-700 ${showPro ? ' right-6 ' : ' -right-full'}    `}>
-                              <Link to='/dashboard'> <button className='p-2 border'>my profile</button>
-                              <button className='p-2 border'>Login</button> </Link> 
+                              <Link to='/dashboard'> <button className='p-2 border'>my profile</button> </Link> 
+                           <Link to='/login'>  <button className='p-2 border'>Login</button> </Link> 
                             </div>
                     <div className={` md:hidden text-center  z-50 gap-6  capitalize text-[#dcdfe2] w-[250px] bg-[#214252]   absolute top-0 transition-all duration-700 ${show ? ' right-6 ' : '-right-full'}    `}>
                         <div className=' md:hidden flex justify-around items-center'>

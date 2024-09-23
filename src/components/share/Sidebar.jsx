@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { CiLocationArrow1 } from 'react-icons/ci';
 const Sidebar = () => {
     return (
-        <div className="sidebar ">
+        <div className="sidebar w-full md:w-[320px]">
                         {/* widget */}
                         <div className='relative bg-white'>
                             <div className="image">
