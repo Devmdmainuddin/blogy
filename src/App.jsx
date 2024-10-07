@@ -24,13 +24,17 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      
-
       {
-        path: "/blogs/:id",
+        path: "/details",
         element: <Details />,
-        loader: ({ params }) => fetch(`https://dummyapi.online/api/${params.id}`)
+       
       },
+
+      // {
+      //   path: "/blogs/:id",
+      //   element: <Details />,
+      //   loader: ({ params }) => fetch(`https://dummyapi.online/api/${params.id}`)
+      // },
       {
         path: "/culture",
         element: <Culture />,
