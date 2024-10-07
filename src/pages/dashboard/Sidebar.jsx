@@ -7,10 +7,16 @@ import { LuUserSquare2 } from 'react-icons/lu';
 import { RiContactsFill } from 'react-icons/ri';
 import { TiDocumentAdd } from 'react-icons/ti';
 import { Link } from 'react-router-dom';
+import useRole from '../../hook/useRole';
+import UserMenu from '../dashboard/Menu/UserMenu'
+import AutherMenu from '../dashboard/Menu/AutherMenu'
+import AdminMenu from '../dashboard/Menu/AdminMenu'
 
 const Sidebar = () => {
+    const [role]=useRole()
+  
     return (
-        <div className='w-[320px] pt-16 min-h-screen bg-[#e8e6e6] px-6'>
+        <div className='w-[285px] pt-16  bg-[#e8e6e6] px-6 '>
             <div className="flex flex-col justify-center w-full px-4  my-12 text-center rounded-md  bg-gray-100 text-gray-800">
                 <img alt="" className="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full bg-gray-500" src="https://source.unsplash.com/100x100/?portrait?0" />
                 <div className="flex-1 my-4">
@@ -44,13 +50,15 @@ const Sidebar = () => {
 
             <ul className='border bg-gray-100'>
                 <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/login' className='flex gap-2 items-center justify-center capitalize'><LuUserSquare2 /> account Details</Link></li>
-                {/* {role === 'user' && <UserMenu />}
+                {role === 'user' && <UserMenu />}
                 {role === 'auther' && <AutherMenu />}
-                {role === 'admin' && <AdminMenu />} */}
-
+                {role === 'admin' && <AdminMenu />}
+                <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/addpost' className='flex gap-2 items-center justify-center capitalize'><TiDocumentAdd />add post</Link></li>
+                <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/managepost' className='flex gap-2 items-center justify-center capitalize'><IoMdKey />manage post</Link></li>
                 {/* <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/addpost' className='flex gap-2 items-center justify-center capitalize'><FaRegFolderClosed /> all post</Link></li>
                 <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/addpost' className='flex gap-2 items-center justify-center capitalize'><TiDocumentAdd /> add post</Link></li>
-                <li className='py-4  border-b text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/login' className='flex gap-2 items-center justify-center capitalize'><FaRegEdit /> edit post</Link></li> */}
+                */}
+                 <li className='py-4  border-b text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/editpost' className='flex gap-2 items-center justify-center capitalize'><FaRegEdit /> edit post</Link></li>
                 <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/login' className='flex gap-2 items-center justify-center capitalize'><IoMdKey /> change password</Link></li>
                 <li className='py-4  border-b text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/login' className='flex gap-2 items-center justify-center capitalize'><CgLogOut /> logout</Link></li>
             </ul>

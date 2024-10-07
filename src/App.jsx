@@ -11,6 +11,8 @@ import Dashboard from './layouts/Dashboard';
 import SignInForm from './pages/Authentication/SignInForm';
 import Registation from './pages/Authentication/Registation'
 import AddPost from './pages/dashboard/auther/AddPost';
+import EditPost from './pages/dashboard/auther/EditPost';
+import ManagePost from './pages/dashboard/auther/ManagePost';
 import Blogs from './pages/Blogs/Blogs';
 
 const router = createBrowserRouter([
@@ -63,8 +65,16 @@ const router = createBrowserRouter([
     element:<Dashboard></Dashboard>,
     children:[
       {
+        path: "/dashboard/managepost",
+        element: <ManagePost />,
+      },
+      {
         path: "/dashboard/addpost",
         element: <AddPost />,
+      },
+      {
+        path: "/dashboard/editpost",
+        element: <EditPost />,
       },
     ]
   }

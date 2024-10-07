@@ -31,7 +31,7 @@ export const userApi = createApi({
   addUser: builder.mutation({
       query: (body) => ({
           url: `/user/`,
-          method: 'user',
+          method: 'PUT',
           body
       }),
       invalidatesTags:  [{ type: 'user', id: 'LIST' },] 

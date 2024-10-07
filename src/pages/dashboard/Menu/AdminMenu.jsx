@@ -8,9 +8,9 @@ import { FiUsers } from 'react-icons/fi';
 const AdminMenu = () => {
     return (
         <>
-            <MenuItems icon={FaRegFolderClosed} to='/dashboard/addProduct' text='all post'></MenuItems>
+            <MenuItems icon={FaRegFolderClosed} to='/dashboard/managepost' text='manage post'></MenuItems>
             <MenuItems icon={TiDocumentAdd} to='/dashboard/addProduct' text=' add post'></MenuItems>
-            <MenuItems icon={FaRegEdit} to='/dashboard/addProduct' text='edit post'></MenuItems>
+            <MenuItems icon={FaRegEdit} to='/dashboard/editpost' text='edit post'></MenuItems>
             <MenuItems icon={FiUsers} to='/dashboard/addProduct' text='authers'></MenuItems>
         </>
     );
