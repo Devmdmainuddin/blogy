@@ -12,7 +12,6 @@ const usePosts = () => {
         },
       })
     
-        // const cartTotal = product.reduce((acc,items)=> acc + parseInt(items.price),0)
         return [posts,loading,refetch]
 };
 

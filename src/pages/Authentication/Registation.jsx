@@ -12,7 +12,6 @@ import toast from 'react-hot-toast';
 import { useAddUserMutation } from '../../Feature/userAPI/userAPI.js'
 import { imageUpload } from "../../utils/index";
 import Swal from 'sweetalert2';
-// import { useAddUserMutation } from '../../Feature/userAPI/userAPI.JS';
 const Registation = () => {
     const navigate = useNavigate()
     const [addUser]=useAddUserMutation()

@@ -92,7 +92,38 @@ const Details = () => {
                             </div>
 
                         </div>
-                       
+
+                        <div class="bg-white border border-gray-100  w-full p-[30px]  mt-[50px] flex gap-6 items-center">
+                            <div>
+                                <div className="image w-[105px] h-[108px]">
+                                    <Image src="/card.jpg"></Image>
+                                </div>
+                            </div>
+
+                            <div className="content">
+                                <h2 class="text-[#282830] text-[16px] font-normal leading-[28px] tracking-[1.6px] uppercase">Robert Godwin</h2>
+
+                                <p class="text-[#282830] text-[12px] capitalize  leading-[28px] tracking-[2.4px]">March 20, 2017</p>
+
+                                <p class="text-[#181303] font-light leading-[24px] tracking-[1.4px]">Efficiently reintermediate distinctive leadership through backend potentialities. Compellingly incentivize granular without standardized e-tailers.</p>
+                            </div>
+                        </div>
+                        <h2 class="text-[#282830]  text-lg font-light tracking-[1.8px] leading-[26px] mt-16 mb-6 uppercase">leave your comment</h2>
+                        <form action="" className='bg-white  hover:shadow-[0_4px_16px_rgba(17,17,26,0.1),_0_8px_32px_rgba(17,17,26,0.05)] inline-block w-full p-[30px] transition-all duration-500 '>
+
+
+                            <div className='flex flex-col md:flex-row gap-3'>
+
+                                <input type="text" placeholder="NAME :" name='name' className="mt-4 capitalize w-full px-4 py-2.5 text-base leading-[1.5] text-coolGray-900 font-normal outline-none focus:border-[#214252] border border-[#dddddd]  rounded-sm transition-all duration-500 " />
+                                <input type="email" placeholder="EMAIL :" name='email' className="mt-4 capitalize  w-full px-4 py-2.5 text-base leading-[1.5] text-coolGray-900 font-normal outline-none focus:border-[#214252] border border-[#dddddd]  rounded-sm transition-all duration-500 " />
+                            </div>
+                            <textarea placeholder="COMMENT :" name='comment' rows='8' className="mt-4 capitalize  w-full  px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-[#214252] border border-[#dddddd]  rounded-sm transition-all duration-500 " />
+                            <input type="number" placeholder="RATING :" name='title' className="mt-4 capitalize w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-[#214252] border border-[#dddddd]  rounded-sm transition-all duration-500 " />
+                            <input type="submit" value="post comment" className='mt-6 inline-block py-2 px-4 border uppercase bg-[#214252] text-white rounded-sm' />
+
+
+                        </form>
+
 
 
                     </div>

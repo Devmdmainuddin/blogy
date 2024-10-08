@@ -16,7 +16,6 @@ import {
 } from 'firebase/auth'
 import { app } from '../firebase/firebase.config'
 import useAxiosCommon from '../hook/useAxiosCommon'
-import toast from 'react-hot-toast'
 import Swal from 'sweetalert2'
 export const AuthContext = createContext(null)
 const auth = getAuth(app)
@@ -86,17 +85,6 @@ const AuthProvider = ({ children }) => {
       photoURL: photo,
     })
   }
-  //  const saveUser = async user =>{
-  //     const currentUser= {
-  //       name:user?.displayName,
-  //       email:user?.email,
-  //       role:'user',
-  //       status:'verified',
-  //     }
-  //     const {data} = await axiosCommon.put(`/user`,currentUser)
-  //     return data
-  //   }
-
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, currentUser => {
@@ -105,9 +93,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser)
 
 
-
       if (currentUser) {
-        // saveUser(currentUser)
         axiosCommon.post(`/jwt`, loggedUser)
           .then(res => {
             if (res.data.token) {
@@ -145,7 +131,7 @@ const AuthProvider = ({ children }) => {
 }
 
 AuthProvider.propTypes = {
-  // Array of children.
+
   children: PropTypes.object,
 }
 

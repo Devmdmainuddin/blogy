@@ -58,14 +58,14 @@ const SignInForm = () => {
       });
     }
     catch (err) {
-     console.log(err.message);
-      // Swal.fire({
-      //   position: "top-end",
-      //   icon: "error",
-      //   title: "err.message",
-      //   showConfirmButton: false,
-      //   timer: 1500
-      // });
+    //  console.log(err.message);
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "err.message",
+        showConfirmButton: false,
+        timer: 1500
+      });
     }
   }
 

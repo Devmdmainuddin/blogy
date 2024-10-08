@@ -53,12 +53,9 @@ const Sidebar = () => {
                 {role === 'user' && <UserMenu />}
                 {role === 'auther' && <AutherMenu />}
                 {role === 'admin' && <AdminMenu />}
-                <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/addpost' className='flex gap-2 items-center justify-center capitalize'><TiDocumentAdd />add post</Link></li>
-                <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/managepost' className='flex gap-2 items-center justify-center capitalize'><IoMdKey />manage post</Link></li>
-                {/* <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/addpost' className='flex gap-2 items-center justify-center capitalize'><FaRegFolderClosed /> all post</Link></li>
-                <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/addpost' className='flex gap-2 items-center justify-center capitalize'><TiDocumentAdd /> add post</Link></li>
-                */}
-                 <li className='py-4  border-b text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/editpost' className='flex gap-2 items-center justify-center capitalize'><FaRegEdit /> edit post</Link></li>
+                {/* <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/addpost' className='flex gap-2 items-center justify-center capitalize'><TiDocumentAdd />add post</Link></li>
+                <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/managepost' className='flex gap-2 items-center justify-center capitalize'><IoMdKey />manage post</Link></li> */}
+                 {/* <li className='py-4  border-b text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/editpost' className='flex gap-2 items-center justify-center capitalize'><FaRegEdit /> edit post</Link></li> */}
                 <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/login' className='flex gap-2 items-center justify-center capitalize'><IoMdKey /> change password</Link></li>
                 <li className='py-4  border-b text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/login' className='flex gap-2 items-center justify-center capitalize'><CgLogOut /> logout</Link></li>
             </ul>

@@ -8,36 +8,37 @@ import { FaUser } from 'react-icons/fa';
 import { MdAccessTime } from 'react-icons/md';
 import usePosts from '../../hook/usePosts';
 import { useEffect, useState } from 'react';
+import { useGetBlogsQuery } from '../../Feature/postsAPI/postApi';
 
 const HeroSlider = () => {
+    const { data } = useGetBlogsQuery()
     const [posts] = usePosts()
     const [lifeStyle, setLifeStyle] = useState([])
     const [travel, setTravel] = useState([])
-    const [science, setScience] = useState([])
+    const [politics, setPolitics] = useState([])
     const [technology, setTechnology] = useState([])
-    const [health, setHealth] = useState([])
-    // const Lifestyle=posts.filter(item=>item.category === 'Lifestyle')
-
+    const [business, setBusiness] = useState([])
     useEffect(() => {
-        if (posts.length > 0) {
-            const lifestylePosts = posts.filter((item) => item.category === 'Lifestyle');
-            const travelPosts = posts.filter((item) => item.category === 'Travel');
-            const sciencePosts = posts.filter((item) => item.category === 'Science');
-            const technologyPosts = posts.filter((item) => item.category === 'Technology');
-            const healthPosts = posts.filter((item) => item.category === 'Health');
+        if (data?.length > 0) {
+            const lifestylePosts = data?.filter((item) => item.category === 'Lifestyle');
+            const travelPosts = data?.filter((item) => item.category === 'Travel');
+            const politicsPosts = data?.filter((item) => item.category === 'Politics');
+            const technologyPosts = data?.filter((item) => item.category === 'technology');
+            const healthPosts = data?.filter((item) => item.category === 'Business');
+            setPolitics(politicsPosts)
             setLifeStyle(lifestylePosts);
             setTravel(travelPosts);
-            setScience(sciencePosts);
             setTechnology(technologyPosts);
-            setHealth(healthPosts)
+            setBusiness(healthPosts)
 
         }
-    }, [posts]);
+    }, [data]);
 
     return (
         <div >
             <Container>
                 <div className=' grid lg:grid-cols-3 md:grid-cols-2 md:grid-rows-3 grid-cols-1 lg:grid-rows-2  gap-6'>
+                    {/* lifeStyle */}
                     <div className=' lg:row-start-1 lg:row-end-2 lg:row-span-2 md:row-start-2 '>
                         <Swiper
                             slidesPerView={1}
@@ -61,10 +62,10 @@ const HeroSlider = () => {
                                         className=" flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-cover bg-center bg-no-repeat">
                                         <div className='p-6'>
                                             <p className='category inline-block  text-white p-[2px] bg-[#ffc107] rounded-sm capitalize'>{item.category}</p>
-                                            <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title}</h2>
+                                            <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title.slice(0,38)}</h2>
                                             <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>Sojib Rahman</span> </p>
-                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>March 20, 2017</span></p>
+                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>{item.userInfo.name}</span> </p>
+                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>{item.createAt}</span></p>
 
                                             </div>
                                         </div>
@@ -77,6 +78,7 @@ const HeroSlider = () => {
                         </Swiper>
 
                     </div>
+                    {/* travel */}
                     <div className=' lg:row-span-3 lg:col-start-1 md:row-start-3 '>
                         <Swiper
                             slidesPerView={1}
@@ -100,11 +102,10 @@ const HeroSlider = () => {
                                         className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-cover bg-center bg-no-repeat">
                                         <div className='p-6'>
                                             <p className='category inline-block  text-white p-[2px] bg-[#ffc107] rounded-sm capitalize'>{item.category}</p>
-                                            <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title}</h2>
+                                            <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title.slice(0,38)}</h2>
                                             <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>Sojib Rahman</span> </p>
-                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>March 20, 2017</span></p>
-
+                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>{item.userInfo.name}</span> </p>
+                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>{item.createAt}</span></p>
                                             </div>
                                         </div>
 
@@ -115,6 +116,7 @@ const HeroSlider = () => {
 
                         </Swiper>
                     </div>
+                    {/* politics */}
                     <div className=' lg:row-span-full lg:col-start-2 lg:col-end-3  md:col-span-2 md:row-start-1 h-[220px] lg:h-full'>
                         <Swiper
                             slidesPerView={1}
@@ -127,36 +129,32 @@ const HeroSlider = () => {
                             modules={[Autoplay]}
                             className="mySwiper h-full lg:h-full"
                         >
-
-                            <SwiperSlide className="  ">
-                                {science.map((item, idx) =>
-                                    <div key={idx}
+                            {politics?.map((item, idx) =>
+                                <SwiperSlide key={idx} className="  ">
+                                    <div
                                         style={{
                                             backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
                                         }}
                                         className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow  bg-cover bg-center bg-no-repeat">
                                         <div className='p-6'>
-                                            <p className='category inline-block  text-white p-[2px] bg-[#7ee4e4] rounded-sm capitalize'>category</p>
-                                            <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>The Master Of Human Happiness</h2>
+                                            <p className='category inline-block  text-white p-[2px] bg-[#7ee4e4] rounded-sm capitalize'>{item.category}</p>
+                                            <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title.slice(0,38)}</h2>
                                             <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>Sojib Rahman</span> </p>
-                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>March 20, 2017</span></p>
-
+                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>{item.userInfo.name}</span> </p>
+                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>{item.createAt}</span></p>
                                             </div>
                                         </div>
 
                                     </div>
-                                )}
-
-                                {/* <img src="/card.jpg" alt="" className='group-hover:scale-125  w-full h-full  object-cover transition-all duration-500' /> */}
-                            </SwiperSlide>
-
+                                </SwiperSlide>
+                            )}
 
                         </Swiper>
 
 
 
                     </div>
+                    {/* technology */}
                     <div className=' lg:row-start-1 lg:col-start-3 lg:col-end-4 '>
                         <Swiper
                             slidesPerView={1}
@@ -180,11 +178,10 @@ const HeroSlider = () => {
                                         className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-cover bg-center bg-no-repeat">
                                         <div className='p-6'>
                                             <p className='category inline-block  text-white p-[2px] bg-[#ffc107] rounded-sm capitalize'>{item.category}</p>
-                                            <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title}</h2>
+                                            <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title.slice(0,38)}</h2>
                                             <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>Sojib Rahman</span> </p>
-                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>March 20, 2017</span></p>
-
+                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>{item.userInfo.name}</span> </p>
+                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>{item.createAt}</span></p>
                                             </div>
                                         </div>
 
@@ -195,6 +192,7 @@ const HeroSlider = () => {
 
                         </Swiper>
                     </div>
+                    {/* business */}
                     <div className=' lg:row-span-2 lg:col-start-3 lg:col-end-4 '>
                         <Swiper
                             slidesPerView={1}
@@ -209,7 +207,7 @@ const HeroSlider = () => {
                             modules={[Autoplay]}
                             className="mySwiper"
                         >
-                            {health.slice(0, 4).map((item, idx) =>
+                            {business.slice(0, 4).map((item, idx) =>
                                 <SwiperSlide key={idx} className='h-[220px]'>
                                     <div
                                         style={{
@@ -218,11 +216,10 @@ const HeroSlider = () => {
                                         className="flex justify-end flex-col blog-card h-full relative group overflow-hidden shadow-bshadow bg-cover bg-center bg-no-repeat">
                                         <div className='p-6'>
                                             <p className='category inline-block  text-white p-[2px] bg-[#ffc107] rounded-sm capitalize'>{item.category}</p>
-                                            <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title}</h2>
+                                            <h2 className='capitalize tracking-widest py-3 text-xl text-white font-light'>{item.title.slice(0,38)}</h2>
                                             <div className='flex flex-col md:flex-row  gap-2 mt-3'>
-                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>Sojib Rahman</span> </p>
-                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>March 20, 2017</span></p>
-
+                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><FaUser className='text-red-600' /> By <span>{item.userInfo.name}</span> </p>
+                                                <p className='flex items-center gap-1 text-white hover:text-[#7a7a85]'><MdAccessTime className='text-red-600' />  <span>{item.createAt}</span></p>
                                             </div>
                                         </div>
 
