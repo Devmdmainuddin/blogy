@@ -9,6 +9,7 @@ import { MdAccessTime } from 'react-icons/md';
 import usePosts from '../../hook/usePosts';
 import { useEffect, useState } from 'react';
 import { useGetBlogsQuery } from '../../Feature/postsAPI/postApi';
+import { Link } from 'react-router-dom';
 
 const HeroSlider = () => {
     const { data } = useGetBlogsQuery()
@@ -55,6 +56,7 @@ const HeroSlider = () => {
                         >
                             {lifeStyle.slice(0, 4).map((item, idx) =>
                                 <SwiperSlide key={idx} className='h-[220px] '>
+                                    <Link to={`/blogs/${item._id}`}>
                                     <div
                                         style={{
                                             backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
@@ -71,6 +73,8 @@ const HeroSlider = () => {
                                         </div>
 
                                     </div>
+                                    </Link>
+                                    
                                 </SwiperSlide>
                             )}
 
@@ -95,7 +99,8 @@ const HeroSlider = () => {
                         >
                             {travel.slice(0, 4).map((item, idx) =>
                                 <SwiperSlide key={idx} className='h-[220px]'>
-                                    <div
+                                      <Link to={`/blogs/${item._id}`}>
+                                      <div
                                         style={{
                                             backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
                                         }}
@@ -110,6 +115,8 @@ const HeroSlider = () => {
                                         </div>
 
                                     </div>
+                                      </Link>
+                                   
                                 </SwiperSlide>
                             )}
 
@@ -131,7 +138,8 @@ const HeroSlider = () => {
                         >
                             {politics?.map((item, idx) =>
                                 <SwiperSlide key={idx} className="  ">
-                                    <div
+                                   <Link to={`/blogs/${item._id}`}>
+                                   <div
                                         style={{
                                             backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
                                         }}
@@ -146,6 +154,8 @@ const HeroSlider = () => {
                                         </div>
 
                                     </div>
+                                   </Link>
+                                    
                                 </SwiperSlide>
                             )}
 
@@ -171,7 +181,8 @@ const HeroSlider = () => {
                         >
                             {technology.slice(0, 4).map((item, idx) =>
                                 <SwiperSlide key={idx} className='h-[220px]'>
-                                    <div
+                                      <Link to={`/blogs/${item._id}`}>
+                                      <div
                                         style={{
                                             backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
                                         }}
@@ -186,6 +197,8 @@ const HeroSlider = () => {
                                         </div>
 
                                     </div>
+                                      </Link>
+                                   
                                 </SwiperSlide>
                             )}
 
@@ -209,7 +222,8 @@ const HeroSlider = () => {
                         >
                             {business.slice(0, 4).map((item, idx) =>
                                 <SwiperSlide key={idx} className='h-[220px]'>
-                                    <div
+                                   <Link to={`/blogs/${item._id}`}>
+                                   <div
                                         style={{
                                             backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
                                         }}
@@ -224,6 +238,8 @@ const HeroSlider = () => {
                                         </div>
 
                                     </div>
+                                   </Link>  
+                                  
                                 </SwiperSlide>
                             )}
 

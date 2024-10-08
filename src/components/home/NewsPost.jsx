@@ -9,14 +9,16 @@ import { MdAccessTime } from 'react-icons/md';
 import { FaComment } from 'react-icons/fa';
 // import { useGetPostsQuery } from '../../Feature/postsAPI/postApi';
 import usePosts from '../../hook/usePosts';
+import { useGetBlogsQuery } from '../../Feature/postsAPI/postApi';
+import { Link } from 'react-router-dom';
 const NewsPost = () => {
-    const[posts]=usePosts()
-
+    const [posts] = usePosts()
+    const { data } = useGetBlogsQuery()
     // const { data, error, isLoading } = useGetPostsQuery();
 
     // if (isLoading) return <div>Loading...</div>;
     // if (error) return <div>Error loading posts: {error.message}</div>;
-    
+
     return (
         <section className='pb-16'>
 
@@ -49,31 +51,33 @@ const NewsPost = () => {
                     modules={[Navigation]}
                     className="mySwiper mt-9"
                 >
-                    {posts.slice(0,5).map((item,idx) =>
+                    {data?.slice(0, 5).map((item, idx) =>
                         <SwiperSlide key={idx}>
+                            <Link to={`/blogs/${item._id}`}>
+                                <div
+                                    className={`flex items-end blog-card h-[325px] relative group overflow-hidden shadow-bshadow bg-cover bg-center bg-no-repeat`}
+                                    style={{
+                                        backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
+                                    }}
+                                >
 
-<div
-                                className={`flex items-end blog-card h-[325px] relative group overflow-hidden shadow-bshadow bg-cover bg-center bg-no-repeat`}
-                                style={{
-                                    backgroundImage: `linear-gradient(180deg, hsla(0, 0%, 6%, 0) 41.54%, hsla(0, 0%, 6%, 0.621) 72.29%, #101010), url('${item.image}')`
-                                }}
-                            >
 
+                                    <div className='px-2'>
+                                        <p className='category inline-block text-white p-1 bg-red-400 rounded-sm capitalize'>{item.category}</p>
+                                        <h2 className='capitalize font-medium  py-2 text-white hover:text-red-400 transition-all duration-500'>{item.title}</h2>
+                                        <div className='flex flex-col md:flex-row  gap-2 pb-3'>
 
-                                <div className='px-2'>
-                                    <p className='category inline-block text-white p-1 bg-red-400 rounded-sm capitalize'>{item.category}</p>
-                                    <h2 className='capitalize font-medium  py-2 text-white hover:text-red-400 transition-all duration-500'>{item.title}</h2>
-                                    <div className='flex flex-col md:flex-row  gap-2 pb-3'>
-
-                                        <p className='flex items-center gap-1 text-white hover:text-red-400 transition-all duration-500'><MdAccessTime />  <span>{item.date}</span></p>
-                                        <p className='flex items-center gap-1 text-white hover:text-red-400 transition-all duration-500'><FaComment /> <span>5</span></p>
+                                            <p className='flex items-center gap-1 text-white hover:text-red-400 transition-all duration-500'><MdAccessTime />  <span>{item.createAt}</span></p>
+                                            <p className='flex items-center gap-1 text-white hover:text-red-400 transition-all duration-500'><FaComment /> <span>5</span></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
+
 
 
                         </SwiperSlide>
-                    )} 
+                    )}
 
                     {/* <SwiperSlide>
 

@@ -15,6 +15,17 @@ export const postApi = createApi({
               { type: 'blog', id: 'LIST' }, 
             ]
           : [{ type: 'blog', id: 'LIST' }],
+          transformResponse: (response, meta, arg) => {
+            // Sorting logic based on arg (sortOrder)
+            const sortOrder = arg?.sortOrder || 'new'; // Default to 'new' if no argument is provided
+            const sortedData = [...response].sort((a, b) => {
+                const dateA = new Date(a.createAt);
+                const dateB = new Date(b.createAt);
+                return sortOrder === 'new' ? dateB - dateA : dateA - dateB;
+            });
+            return sortedData;
+        },
+        
     }),
      // delete product
      deleteBlogs: builder.mutation({
