@@ -15,7 +15,7 @@ const FeaturePost = () => {
             <Container>
                 <div className='mt-9 flex flex-col gap-9'>
                 {data?.slice(10, 14).map((item,idx) => 
-                    <div key={idx} className='flex flex-col lg:flex-row gap-6 items-center  group lg:h-[248px] h-auto '>
+                    <div key={idx} className='flex flex-col lg:flex-row gap-6 items-center  group lg:h-[248px] h-auto hover:shadow-custom transition-all duration-500'>
                         <div className=' h-full'>
                             <div className="image w-full lg:w-[329px]  h-full overflow-hidden">
                                 <img src={item.image} alt="" className='group-hover:scale-125 w-full h-full object-cover transition-all duration-500' />

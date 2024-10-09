@@ -5,13 +5,15 @@ import HeroSlider from '../../components/home/HeroSlider';
 import FeaturePost from '../../components/home/FeaturePost';
 import NewsPost from '../../components/home/NewsPost';
 import Sidebar from '../../components/share/Sidebar';
+import Container from '../../components/share/Container';
 
 const Home = () => {
     return (
         <div >
             <HeroSlider></HeroSlider>
             <Hero></Hero>
-            <div className='max-w-[1520px]  mx-auto flex flex-col md:flex-row justify-between gap-4 mt-10'>
+            <Container>
+            <div className='flex flex-col md:flex-row justify-between gap-4 mt-10'>
                 <div className="main w-full md:w-3/4">
                     <Highlight></Highlight>
                     <FeaturePost></FeaturePost>
@@ -20,6 +22,8 @@ const Home = () => {
                     <Sidebar></Sidebar>
                 </div>
             </div>
+            </Container>
+           
             <NewsPost></NewsPost>
         </div>
     );

@@ -8,7 +8,7 @@ import Footer from "../components/share/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-[#f4f4f4]">
       <Navbar></Navbar>
       <div className='bg-[#f4f4f4] py-4'>
      

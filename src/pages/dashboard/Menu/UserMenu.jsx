@@ -9,7 +9,6 @@ const UserMenu = () => {
         <>
             <MenuItems icon={FaRegFolderClosed} to='/dashboard/managepost' text='manage post'></MenuItems>
             <MenuItems icon={RiImageAddLine } to='/dashboard/addpost' text=' add post'></MenuItems>
-            <MenuItems icon={FaRegEdit} to='/dashboard/editpost' text='edit post'></MenuItems>
         </>
     );
 };

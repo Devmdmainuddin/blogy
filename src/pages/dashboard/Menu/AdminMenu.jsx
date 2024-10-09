@@ -9,9 +9,8 @@ const AdminMenu = () => {
     return (
         <>
             <MenuItems icon={FaRegFolderClosed} to='/dashboard/managepost' text='manage post'></MenuItems>
-            <MenuItems icon={RiImageAddLine} to='/dashboard/addProduct' text=' add post'></MenuItems>
-            <MenuItems icon={FaRegEdit} to='/dashboard/editpost' text='edit post'></MenuItems>
-            <MenuItems icon={FiUsers} to='/dashboard/addProduct' text='authers'></MenuItems>
+            <MenuItems icon={RiImageAddLine } to='/dashboard/addpost' text=' add post'></MenuItems>
+            <MenuItems icon={FiUsers} to='/dashboard/manageAuthers' text='authers'></MenuItems>
         </>
     );
 };

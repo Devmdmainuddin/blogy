@@ -6,10 +6,17 @@ import { FaComment, FaFacebookF, FaPinterestP, FaSkype, FaTags, FaTwitter, FaUse
 import { MdAccessTime } from 'react-icons/md';
 import { Link, useLoaderData } from 'react-router-dom';
 import { useGetBlogsQuery } from '../../Feature/postsAPI/postApi';
+import useAuth from '../../hook/useAuth';
+import { useAddCommentMutation, useGetCommentQuery } from '../../Feature/commentAPI/commentApi';
+import Swal from 'sweetalert2';
 
 const Details = () => {
+
+    const { user } = useAuth() || {}
     const blog = useLoaderData();
     const { data } = useGetBlogsQuery()
+    const [AddComment] = useAddCommentMutation()
+    const { data: comments } = useGetCommentQuery()
     const [relatedItem, setRelatedItem] = useState([])
 
     useEffect(() => {
@@ -18,10 +25,54 @@ const Details = () => {
             setRelatedItem(relative)
         }
     }, [data])
+
+
+    const handleSubmit = async (e) => {
+
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const comment = form.comment.value;
+        const rating = form.rating.value;
+        const createAt = (new Date()).toDateString();
+        const username = user?.displayName;
+        const usermail = user?.email;
+        const userImage = user?.photoURL;
+        const userInfo = { username, usermail, userImage }
+        const info = {
+            name, email, comment, rating, createAt, userInfo
+        }
+
+        console.log(info);
+        try {
+            await AddComment(info)
+            Swal
+                .fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: " comment  successful ",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            form.reset();
+
+        } catch (error) {
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: " comment faile",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+
+    }
+
     return (
         <div>
             <Container>
-                <div className='flex gap-6 justify-between'>
+                <div className='flex flex-col md:flex-row gap-6 justify-between'>
                     <div>
                         <div className="image w-full h-auto ">
                             <Image src={blog.image}></Image>
@@ -69,7 +120,7 @@ const Details = () => {
                             <h2 className='text-[28px] font-medium  leading-[1.7]'>Related Articles</h2>
                             <div className='mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6 '>
 
-                                {relatedItem.slice(0, 2).map((item, idx) =>
+                                {relatedItem?.slice(0, 2).map((item, idx) =>
                                     <Link to={`/blogs/${item._id}`} key={idx}>
                                         <div
                                             style={{
@@ -95,24 +146,26 @@ const Details = () => {
                             </div>
 
                         </div>
+                        {comments?.slice(0, 4).map((item,idx) =>
+                            <div key={idx} class="bg-white border border-gray-100  w-full p-[30px]  mt-[50px] flex gap-6 items-center">
+                                <div>
+                                    <div className="image w-[105px] h-[108px]">
+                                        <Image src={item.userInfo.userImage}></Image>
+                                    </div>
+                                </div>
 
-                        <div class="bg-white border border-gray-100  w-full p-[30px]  mt-[50px] flex gap-6 items-center">
-                            <div>
-                                <div className="image w-[105px] h-[108px]">
-                                    <Image src="/card.jpg"></Image>
+                                <div className="content">
+                                    <h2 class="text-[#282830] text-[16px] font-normal leading-[28px] tracking-[1.6px] uppercase">{item.name}</h2>
+
+                                    <p class="text-[#282830] text-[12px] capitalize  leading-[28px] tracking-[2.4px]">{item.createAt}</p>
+
+                                    <p class="text-[#181303] font-light leading-[24px] tracking-[1.4px]">{item.comment}</p>
                                 </div>
                             </div>
+                        )}
 
-                            <div className="content">
-                                <h2 class="text-[#282830] text-[16px] font-normal leading-[28px] tracking-[1.6px] uppercase">Robert Godwin</h2>
-
-                                <p class="text-[#282830] text-[12px] capitalize  leading-[28px] tracking-[2.4px]">March 20, 2017</p>
-
-                                <p class="text-[#181303] font-light leading-[24px] tracking-[1.4px]">Efficiently reintermediate distinctive leadership through backend potentialities. Compellingly incentivize granular without standardized e-tailers.</p>
-                            </div>
-                        </div>
                         <h2 class="text-[#282830]  text-lg font-light tracking-[1.8px] leading-[26px] mt-16 mb-6 uppercase">leave your comment</h2>
-                        <form action="" className='bg-white  hover:shadow-[0_4px_16px_rgba(17,17,26,0.1),_0_8px_32px_rgba(17,17,26,0.05)] inline-block w-full p-[30px] transition-all duration-500 '>
+                        <form onSubmit={handleSubmit} action="" className='bg-white  hover:shadow-[0_4px_16px_rgba(17,17,26,0.1),_0_8px_32px_rgba(17,17,26,0.05)] inline-block w-full p-[30px] transition-all duration-500 '>
 
 
                             <div className='flex flex-col md:flex-row gap-3'>
@@ -120,8 +173,8 @@ const Details = () => {
                                 <input type="text" placeholder="NAME :" name='name' className="mt-4 capitalize w-full px-4 py-2.5 text-base leading-[1.5] text-coolGray-900 font-normal outline-none focus:border-[#214252] border border-[#dddddd]  rounded-sm transition-all duration-500 " />
                                 <input type="email" placeholder="EMAIL :" name='email' className="mt-4 capitalize  w-full px-4 py-2.5 text-base leading-[1.5] text-coolGray-900 font-normal outline-none focus:border-[#214252] border border-[#dddddd]  rounded-sm transition-all duration-500 " />
                             </div>
-                            <textarea placeholder="COMMENT :" name='comment' rows='8' className="mt-4 capitalize  w-full  px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-[#214252] border border-[#dddddd]  rounded-sm transition-all duration-500 " />
-                            <input type="number" placeholder="RATING :" name='title' className="mt-4 capitalize w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-[#214252] border border-[#dddddd]  rounded-sm transition-all duration-500 " />
+                            <textarea placeholder="COMMENT :" name='comment' rows='8' className="mt-4 capitalize  w-full  px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-[#214252] border border-[#dddddd]  rounded-sm transition-all duration-500 resize-none" />
+                            <input type="number" placeholder="RATING :" min={1} max={5} name='rating' className="mt-4 capitalize w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-[#214252] border border-[#dddddd]  rounded-sm transition-all duration-500 " />
                             <input type="submit" value="post comment" className='mt-6 inline-block py-2 px-4 border uppercase bg-[#214252] text-white rounded-sm' />
 
 

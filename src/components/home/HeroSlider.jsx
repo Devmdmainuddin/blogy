@@ -45,7 +45,7 @@ const HeroSlider = () => {
                             slidesPerView={1}
                             spaceBetween={false}
                             autoplay={{
-                                delay: 3000,
+                                delay: 2000,
                                 disableOnInteraction: true,
                             }}
 
@@ -129,7 +129,7 @@ const HeroSlider = () => {
                             slidesPerView={1}
                             spaceBetween={false}
                             autoplay={{
-                                delay: 2000,
+                                delay: 2500,
                                 disableOnInteraction: true,
                             }}
                             loop={true}
@@ -170,7 +170,7 @@ const HeroSlider = () => {
                             slidesPerView={1}
                             spaceBetween={false}
                             autoplay={{
-                                delay: 3000,
+                                delay: 3500,
                                 disableOnInteraction: true,
                             }}
 

@@ -8,6 +8,7 @@ export default {
     extend: {
       boxShadow: {
         'bshadow': '0 0 20px rgba(0, 0, 0, .05)',
+        'custom': '0px 3px 8px rgba(0, 0, 0, 0.24)',
       },
       animation: {
         leftToRight: 'leftToRight 3s infinite linear',

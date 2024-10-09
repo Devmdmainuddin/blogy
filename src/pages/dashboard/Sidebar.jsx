@@ -11,17 +11,19 @@ import useRole from '../../hook/useRole';
 import UserMenu from '../dashboard/Menu/UserMenu'
 import AutherMenu from '../dashboard/Menu/AutherMenu'
 import AdminMenu from '../dashboard/Menu/AdminMenu'
+import useAuth from '../../hook/useAuth';
 
 const Sidebar = () => {
+    const { user,logOut } = useAuth() || {}
     const [role]=useRole()
   
     return (
         <div className='w-[285px] pt-16  bg-[#e8e6e6] px-6 '>
             <div className="flex flex-col justify-center w-full px-4  my-12 text-center rounded-md  bg-gray-100 text-gray-800">
-                <img alt="" className="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full bg-gray-500" src="https://source.unsplash.com/100x100/?portrait?0" />
+                <img alt="" className="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full bg-gray-500" src={user?.photoURL} />
                 <div className="flex-1 my-4">
-                    <p className="text-xl font-semibold leading-snug">Leroy Jenkins</p>
-                    <p>Visual Designer</p>
+                    <p className="text-xl font-semibold leading-snug">{user?.displayName}</p>
+                    <p>{role}</p>
                 </div>
                 <div className="flex items-center justify-center p-3 space-x-3 border-t-2">
                     <a rel="noopener noreferrer" href="#" title="Email" className="text-gray-900 hover:text-violet-400">

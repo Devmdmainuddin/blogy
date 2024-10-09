@@ -7,6 +7,7 @@ import Container from '../share/Container';
 import Heading from '../share/Heading';
 import usePosts from '../../hook/usePosts';
 import { useGetBlogsQuery } from '../../Feature/postsAPI/postApi';
+import { Link } from 'react-router-dom';
 
 
 const Hero = () => {
@@ -47,6 +48,7 @@ const Hero = () => {
                     >
                         {data?.slice(0, 5).map((item, idx) =>
                             <SwiperSlide key={idx}>
+                                <Link to={`/blogs/${item._id}`}>
                                 <div
                                     className="flex items-end blog-card   h-[325px] relative group overflow-hidden shadow-bshadow  bg-cover bg-center bg-no-repeat"
                                     style={{
@@ -60,6 +62,8 @@ const Hero = () => {
                                         <p>{item.discaption.discaption01.slice(0,128)}</p>
                                     </div>
                                 </div>
+                                </Link>
+                                
 
 
                             </SwiperSlide>

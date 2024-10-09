@@ -20,12 +20,21 @@ const FooterLi = ({ text, to, className }) => {
 
 const Footer = () => {
     return (
-        <footer className="bg-[url('/fot.svg')] bg-no-repeat bg-cover  mt-[125px]">
+        <footer className="bg-[url('/fot.svg')] bg-no-repeat bg-cover   mt-[125px]">
             <Container>
-         
-                <div className=' w-full relative bg-[#f4f4f4]'>
-                    <div className=' w-3/4 h-[200px] absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#94ecac]  rounded-xl '>
 
+                <div className=' w-full relative bg-[#f4f4f4]'>
+                    <div className='py-6  px-4 w-3/4 h-auto  absolute left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#214252] bg-opacity-80  rounded-xl '>
+                        <div className="  ">
+                            <h1 className="text-4xl font-semibold leading-9 text-white text-center">Don’t miss out!</h1>
+                            <p className="text-base leading-normal text-center text-white mt-6">
+                                Subscribe to your newsletter to stay in the loop. Our newsletter is sent once in <br />a week on every friday so subscribe to get latest news and updates.
+                            </p>
+                            <div className="flex justify-center items-center mt-4">
+                                <input className="border border-white  text-base w-full font-medium leading-none text-white p-4 focus:outline-none bg-transparent placeholder-white" placeholder="Email Address" />
+                                <button className=" focus:outline-0  border border-white  bg-white py-[14px] px-6 hover:text-[#214252] hover:bg-opacity-75">Subscribe</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -50,14 +59,14 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className=" middle ">
+                    <div className=" middle w-[300px]">
                         <h2 className='text-xl text-[#e3e4e8]  tracking-widest capitalize font-light my-4 relative    before:absolute before:-bottom-2.5 inline-block before:w-1/2 before:h-[2px] before:bg-red-500'>categories</h2>
                         <ul className='mt-3 text-[#e3e4e8]'>
-                            <li className=''> <Link className='flex gap-2 items-center  text-[#e3e4e8]'><CiLocationArrow1 /> <span className='uppercase'>Audio</span></Link></li>
-                            <li className=''> <Link className='flex gap-2 items-center text-[#e3e4e8] '><CiLocationArrow1 /> <span className='uppercase'>Fashion</span></Link></li>
-                            <li className=''> <Link className='flex gap-2 items-center  text-[#e3e4e8]'><CiLocationArrow1 /> <span className='uppercase'>Story</span></Link></li>
-                            <li className=''> <Link className='flex gap-2 items-center  text-[#e3e4e8]'><CiLocationArrow1 /> <span className='uppercase'>Life Style</span></Link></li>
-                            <li className='text-[#e3e4e8]'> <Link className='flex gap-2 items-center text-[#e3e4e8] '><CiLocationArrow1 /> <span className='uppercase'>Travel</span></Link></li>
+                            <li className=''> <Link className='flex gap-6 items-center  text-[#e3e4e8] hover:text-[#27b0f5] transition-all duration-500 hover:ml-1'><CiLocationArrow1 /> <span className='uppercase'>Audio</span></Link></li>
+                            <li className=''> <Link className='flex gap-6 items-center  text-[#e3e4e8] hover:text-[#27b0f5] transition-all duration-500 hover:ml-1'><CiLocationArrow1 /> <span className='uppercase'>Fashion</span></Link></li>
+                            <li className=''> <Link className='flex gap-6 items-center  text-[#e3e4e8] hover:text-[#27b0f5] transition-all duration-500 hover:ml-1'><CiLocationArrow1 /> <span className='uppercase'>Story</span></Link></li>
+                            <li className=''> <Link className='flex gap-6 items-center  text-[#e3e4e8] hover:text-[#27b0f5] transition-all duration-500 hover:ml-1'><CiLocationArrow1 /> <span className='uppercase'>Life Style</span></Link></li>
+                            <li className='text-[#e3e4e8]'> <Link className='flex gap-6 items-center  text-[#e3e4e8] hover:text-[#27b0f5] transition-all duration-500 hover:ml-1 '><CiLocationArrow1 /> <span className='uppercase'>Travel</span></Link></li>
 
                         </ul>
                     </div>
