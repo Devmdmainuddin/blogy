@@ -13,23 +13,35 @@ const Blogs = () => {
   const location = useLocation();
   const [items,setItems]= useState()
   useEffect(() => {
-
-
     setItems(data)
 
     const getCategoryFromQuery = () => {
         const params = new URLSearchParams(location.search);
         return params.get('category');
     };
+
     const category = getCategoryFromQuery();
     if (data) {
         if (category) {
-            const filtered = data.filter((blog) => blog.category === category);
+            const filtered = data?.filter((blog) => blog?.category === category);
             setItems(filtered);
         } else {
             setItems(data);
         }
     }
+    const getTagFromQuery = () => {
+      const params = new URLSearchParams(location.search);
+      return params.get('tag');
+  };
+  const tag = getTagFromQuery();
+  if (data) {
+    if (tag) {
+      const filtered = data?.filter((blog) => blog?.tags?.tag01 === tag);
+      setItems(filtered);
+    }  else {
+      setItems(data);
+    }
+  }
 }, [data, location]);
 
   return (

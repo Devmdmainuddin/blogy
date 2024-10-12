@@ -10,13 +10,18 @@ const Sidebar = () => {
     const [sortOrder, setSortOrder] = useState('new');
     const { data } = useGetBlogsQuery({ sortOrder })
     const [categoryItem, setCaregory] = useState([])
+    const [tagsItem, setTagsItem] = useState([])
     const navigate = useNavigate();
     useEffect(() => {
         setCaregory([... new Set(data?.map(item => item.category))])
+        setTagsItem([... new Set(data?.map(item => item?.tags?.tag01))])
     }, [data])
 
     const handleCategoryFilter = (category) => {
         navigate(`/blogs?category=${encodeURIComponent(category)}`);
+    };
+    const handleTagFilter = (tag) => {
+        navigate(`/blogs?tag=${encodeURIComponent(tag)}`);
     };
 
     return (
@@ -96,13 +101,10 @@ const Sidebar = () => {
             <div className='mt-16 mx-6 md:mx-0 p-6 shadow-custom transition-all duration-500'>
                 <h2 className='text-xl text-[#282830] pt-6 text-center tracking-widest uppercase font-light'>Tags</h2>
                 <div className='mt-9 bg-white p-6 rounded-md'>
-                    <span className='text-[#282830] hover:text-white hover:bg-[#282830] text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'>travel </span>
-                    <span className='text-[#282830] hover:text-white hover:bg-[#282830] text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2  inline-block transition-all duration-500'>creative </span>
-                    <span className='text-[#282830] hover:text-white hover:bg-[#282830] text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'> fashion</span>
-                    <span className='text-[#282830] hover:text-white hover:bg-[#282830] text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'> food</span>
-                    <span className='text-[#282830] hover:text-white hover:bg-[#282830] text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'> ideas</span>
-                    <span className='text-[#282830] hover:text-white hover:bg-[#282830] text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'> life</span>
-                    <span className='text-[#282830] hover:text-white hover:bg-[#282830] text-center tracking-widest uppercase font-light p-2 border transition-all duration-500'> style</span>
+                {tagsItem?.map((item,idx)=>
+                                <span onClick={()=>handleTagFilter(item)} key={idx} className='text-[#282830] hover:text-white hover:bg-[#282830] text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'>{item} </span>
+                            )}
+
                 </div>
             </div>
 

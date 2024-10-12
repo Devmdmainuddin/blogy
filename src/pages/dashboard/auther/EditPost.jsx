@@ -90,8 +90,6 @@ const EditPost = () => {
                 <div className="w-full p-3">
                     <label htmlFor='tag01' className="mb-1.5  text-coolGray-800 capitalize lg font-light">tags </label>
                     <input type="text" name='tag01' defaultValue={blogs?.tags?.tag01} placeholder="tag01"  className="mt-1 w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border  rounded-sm transition-all duration-500 " />
-                    <input type="text" name='tag02' placeholder="tag02" className="mt-1 w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border  rounded-sm transition-all duration-500 " />
-                    <input type="text" name='tag03' placeholder="tag03" className="mt-1 w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-green-500 border  rounded-sm transition-all duration-500 " />
                 </div>
 
                 <div className='flex justify-center items-center mt-6'>

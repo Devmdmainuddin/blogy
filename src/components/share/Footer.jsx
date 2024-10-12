@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import Container from './Container';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdOutlineEmail } from 'react-icons/md';
 import { IoIosCall } from 'react-icons/io';
 import { CiLocationArrow1 } from 'react-icons/ci';
+import { useGetBlogsQuery } from '../../Feature/postsAPI/postApi';
 
 const FooterLi = ({ text, to, className }) => {
+
     return (
         <li className=''>
             <Link to={to} className={`font-DM text-sm text-[#6D6D6D]leading-6 ${className}`}>
@@ -19,6 +21,25 @@ const FooterLi = ({ text, to, className }) => {
 }
 
 const Footer = () => {
+    const [sortOrder, setSortOrder] = useState('new');
+    const { data } = useGetBlogsQuery({ sortOrder })
+    const [categoryItem, setCaregory] = useState([])
+    const [tagsItem, setTagsItem] = useState([])
+
+console.log(tagsItem);
+    const navigate = useNavigate();
+    useEffect(() => {
+        setCaregory([... new Set(data?.map(item => item.category))])
+        setTagsItem([... new Set(data?.map(item => item?.tags?.tag01))])
+    }, [data])
+
+    const handleCategoryFilter = (category) => {
+        navigate(`/blogs?category=${encodeURIComponent(category)}`);
+    };
+    const handleTagFilter = (tag) => {
+        navigate(`/blogs?tag=${encodeURIComponent(tag)}`);
+    };
+
     return (
         <footer className="bg-[url('/fot.svg')] bg-no-repeat bg-cover   mt-[125px]">
             <Container>
@@ -49,24 +70,17 @@ const Footer = () => {
                                 If you are going to use a passage of Lorem Ipsum you need to be sure there isn't anything embarrassing hidden in the middle of text </p>
                             <h2 className='text-xl text-[#e3e4e8]  tracking-widest capitalize font-light my-4 relative    before:absolute before:-bottom-2.5 inline-block before:w-1/2 before:h-[2px] before:bg-red-500'>Popular Tag</h2>
                             <div className='max-w-[325px] mt-3 '>
-                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500 text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'>travel </span>
-                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500  text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2  inline-block transition-all duration-500'>creative </span>
-                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500  text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'> fashion</span>
-                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500  text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'> food</span>
-                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500  text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'> ideas</span>
-                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500  text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'> life</span>
-                                <span className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500  text-center tracking-widest uppercase font-light p-2 border transition-all duration-500'> style</span>
-                            </div>
+                                {tagsItem?.map((item,idx)=>
+                                <span key={idx} onClick={()=>handleTagFilter(item)}  className='text-[#e3e4e8] hover:text-red-500 hover:border-red-500 text-center tracking-widest uppercase font-light p-2 border mr-2 mb-2 inline-block transition-all duration-500'>{item} </span>
+                            )}
+                               
+                                </div>
                         </div>
                     </div>
                     <div className=" middle w-[300px]">
                         <h2 className='text-xl text-[#e3e4e8]  tracking-widest capitalize font-light my-4 relative    before:absolute before:-bottom-2.5 inline-block before:w-1/2 before:h-[2px] before:bg-red-500'>categories</h2>
                         <ul className='mt-3 text-[#e3e4e8]'>
-                            <li className=''> <Link className='flex gap-6 items-center  text-[#e3e4e8] hover:text-[#27b0f5] transition-all duration-500 hover:ml-1'><CiLocationArrow1 /> <span className='uppercase'>Audio</span></Link></li>
-                            <li className=''> <Link className='flex gap-6 items-center  text-[#e3e4e8] hover:text-[#27b0f5] transition-all duration-500 hover:ml-1'><CiLocationArrow1 /> <span className='uppercase'>Fashion</span></Link></li>
-                            <li className=''> <Link className='flex gap-6 items-center  text-[#e3e4e8] hover:text-[#27b0f5] transition-all duration-500 hover:ml-1'><CiLocationArrow1 /> <span className='uppercase'>Story</span></Link></li>
-                            <li className=''> <Link className='flex gap-6 items-center  text-[#e3e4e8] hover:text-[#27b0f5] transition-all duration-500 hover:ml-1'><CiLocationArrow1 /> <span className='uppercase'>Life Style</span></Link></li>
-                            <li className='text-[#e3e4e8]'> <Link className='flex gap-6 items-center  text-[#e3e4e8] hover:text-[#27b0f5] transition-all duration-500 hover:ml-1 '><CiLocationArrow1 /> <span className='uppercase'>Travel</span></Link></li>
+                        {categoryItem?.map((item, idx) => <li key={idx} onClick={() => handleCategoryFilter(item)} className='my-2 '> <Link className='flex gap-6 items-center  text-white hover:text-[#27b0f5] transition-all duration-500 hover:ml-1'><CiLocationArrow1 /> <span className='uppercase'>{item}</span></Link></li>)}
 
                         </ul>
                     </div>
