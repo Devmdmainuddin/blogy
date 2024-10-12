@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       {
         path: "/blogs/:id",
         element: <Details />,
-        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+        loader: ({ params }) => fetch(`https://blogy-server-ten.vercel.app/blogs/${params.id}`)
       },
       {
         path: "/culture",
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/editpost/:id",
         element: <EditPost />,
-        loader: ({ params }) => fetch(`http://localhost:5000/blogs/${params.id}`)
+        loader: ({ params }) => fetch(`https://blogy-server-ten.vercel.app/blogs/${params.id}`)
       },
     ]
   }
