@@ -3,6 +3,7 @@ import { postApi } from '../postsAPI/postApi'
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { commentApi } from '../commentAPI/commentApi';
 import { userApi } from '../userAPI/userAPI';
+// import { userApi } from '../userAPI/userAPI';
 
 export const store = configureStore({
   reducer: {
