@@ -9,7 +9,7 @@ import { IoImagesOutline } from 'react-icons/io5';
 import { LuUserSquare2 } from 'react-icons/lu';
 import useAuth from '../../hook/useAuth'
 import toast from 'react-hot-toast';
-import { useAddUserMutation } from '../../Feature/userAPI/userAPI.js'
+import { useAddUserMutation } from '../../Feature/userAPI/userApi.js'
 import { imageUpload } from "../../utils/index";
 import Swal from 'sweetalert2';
 const Registation = () => {
