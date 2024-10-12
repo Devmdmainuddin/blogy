@@ -14,6 +14,7 @@ import AddPost from './pages/dashboard/auther/AddPost';
 import EditPost from './pages/dashboard/auther/EditPost';
 import ManagePost from './pages/dashboard/auther/ManagePost';
 import Blogs from './pages/Blogs/Blogs';
+import PrivateRoute from './providers/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -60,19 +61,19 @@ const router = createBrowserRouter([
   },
   {
     path:"/dashboard",
-    element:<Dashboard></Dashboard>,
+    element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children:[
       {
         path: "/dashboard/managepost",
-        element: <ManagePost />,
+        element:<PrivateRoute><ManagePost /></PrivateRoute> ,
       },
       {
         path: "/dashboard/addpost",
-        element: <AddPost />,
+        element:<PrivateRoute><AddPost /></PrivateRoute> ,
       },
       {
         path: "/dashboard/editpost/:id",
-        element: <EditPost />,
+        element:<PrivateRoute><EditPost /></PrivateRoute> ,
         loader: ({ params }) => fetch(`https://blogy-server-ten.vercel.app/blogs/${params.id}`)
       },
     ]

@@ -1,11 +1,7 @@
 import React from 'react';
 import { CgLogOut } from 'react-icons/cg';
-import { FaRegEdit } from 'react-icons/fa';
-import { FaRegFolderClosed } from 'react-icons/fa6';
 import { IoMdKey } from 'react-icons/io';
 import { LuUserSquare2 } from 'react-icons/lu';
-import { RiContactsFill } from 'react-icons/ri';
-import { TiDocumentAdd } from 'react-icons/ti';
 import { Link } from 'react-router-dom';
 import useRole from '../../hook/useRole';
 import UserMenu from '../dashboard/Menu/UserMenu'
@@ -51,15 +47,12 @@ const Sidebar = () => {
             </div>
 
             <ul className='border bg-gray-100'>
-                <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/login' className='flex gap-2 items-center justify-center capitalize'><LuUserSquare2 /> account Details</Link></li>
+                <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='' className='flex gap-2 items-center justify-center capitalize'><LuUserSquare2 /> account Details</Link></li>
                 {role === 'user' && <UserMenu />}
                 {role === 'auther' && <AutherMenu />}
                 {role === 'admin' && <AdminMenu />}
-                {/* <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/addpost' className='flex gap-2 items-center justify-center capitalize'><TiDocumentAdd />add post</Link></li>
-                <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/managepost' className='flex gap-2 items-center justify-center capitalize'><IoMdKey />manage post</Link></li> */}
-                 {/* <li className='py-4  border-b text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/dashboard/editpost' className='flex gap-2 items-center justify-center capitalize'><FaRegEdit /> edit post</Link></li> */}
                 <li className='py-4  border-b  text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/login' className='flex gap-2 items-center justify-center capitalize'><IoMdKey /> change password</Link></li>
-                <li className='py-4  border-b text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='/login' className='flex gap-2 items-center justify-center capitalize'><CgLogOut /> logout</Link></li>
+                <li onClick={logOut} className='py-4  border-b text-center hover:bg-emerald-800 hover:text-white transition-all duration-500'><Link to='' className='flex gap-2 items-center justify-center capitalize'><CgLogOut /> logout</Link></li>
             </ul>
         </div>
     );

@@ -8,17 +8,7 @@ import { IoIosCall } from 'react-icons/io';
 import { CiLocationArrow1 } from 'react-icons/ci';
 import { useGetBlogsQuery } from '../../Feature/postsAPI/postApi';
 
-const FooterLi = ({ text, to, className }) => {
 
-    return (
-        <li className=''>
-            <Link to={to} className={`font-DM text-sm text-[#6D6D6D]leading-6 ${className}`}>
-                {text}
-            </Link>
-        </li>
-    )
-
-}
 
 const Footer = () => {
     const [sortOrder, setSortOrder] = useState('new');
@@ -26,7 +16,6 @@ const Footer = () => {
     const [categoryItem, setCaregory] = useState([])
     const [tagsItem, setTagsItem] = useState([])
 
-console.log(data);
     const navigate = useNavigate();
     useEffect(() => {
         setCaregory([... new Set(data?.map(item => item.category))])

@@ -43,8 +43,6 @@ const Details = () => {
         const info = {
             name, email, comment, rating, createAt, userInfo
         }
-
-        console.log(info);
         try {
             await AddComment(info)
             Swal

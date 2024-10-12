@@ -1,23 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BiDetail } from 'react-icons/bi';
 import { FaRegEdit } from 'react-icons/fa';
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { Link, useLoaderData } from 'react-router-dom';
-import { useDeleteBlogsMutation, useGetBlogsByEmailQuery, useGetBlogsQuery } from '../../../Feature/postsAPI/postApi';
+import { Link, } from 'react-router-dom';
+import { useDeleteBlogsMutation, useGetBlogsQuery } from '../../../Feature/postsAPI/postApi';
 import Swal from 'sweetalert2';
-import useAuth from '../../../hook/useAuth';
-// import { useDispatch } from 'react-redux';
-
 
 const ManagePost = () => {
-  const { user } = useAuth() || {}
-  const email = user?.email;
-  const { data, isLoading ,error, } = useGetBlogsByEmailQuery(user?.email);
- console.log(email);
- console.log(user?.email);
-//  if (email) {
-//   useDispatch(fetchBlogsByEmail(email));
-// }
+
+  const { data, isLoading, error } = useGetBlogsQuery()
+ 
   const [deleteProduct] = useDeleteBlogsMutation()
 
   const handleDelete = async (id) => {
@@ -87,12 +79,12 @@ const ManagePost = () => {
                   </th>
                 </tr>
               </thead>
-              {/* {isLoading && <p>loading...........</p>}
-                {!isLoading && !error && data && data.length > 0 && ( */}
+              {isLoading && <p>loading...........</p>}
+                {!isLoading && !error && data && data.length > 0 && (
               <tbody>
-                {data?.map(item =>
-                  <tr>
-                    <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+                {data?.map((item,idx) =>
+                  <tr key={idx}>
+                    <td  className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
                       <p className='text-gray-900 whitespace-no-wrap'>{item.title}</p>
                       {/* {item.title} */}
                     </td>
@@ -127,7 +119,7 @@ const ManagePost = () => {
 
               </tbody>
 
-              {/* )} */}
+              )}
             </table>
           </div>
         </div>
