@@ -13,7 +13,6 @@ const Navbar = () => {
     let [searchInput, setSearchInput] = useState("");
     let [searchFilter, setSearchFilter] = useState([]);
     const navigate = useNavigate()
-console.log(user);
     const handleInput = (e) => {
         setSearchInput(e.target.value)
         if (e.target.value === "") {

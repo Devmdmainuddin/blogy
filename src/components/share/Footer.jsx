@@ -26,7 +26,7 @@ const Footer = () => {
     const [categoryItem, setCaregory] = useState([])
     const [tagsItem, setTagsItem] = useState([])
 
-console.log(tagsItem);
+console.log(data);
     const navigate = useNavigate();
     useEffect(() => {
         setCaregory([... new Set(data?.map(item => item.category))])

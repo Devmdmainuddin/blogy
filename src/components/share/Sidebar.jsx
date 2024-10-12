@@ -29,7 +29,7 @@ const Sidebar = () => {
             {/* widget */}
             <div className='mx-6 md:mx-0 p-6 md:p-0 relative bg-white shadow-custom transition-all duration-500'>
                 <div className="image">
-                    <img src="/profile.png" alt="profile" className='group-hover:scale-125 w-full h-full object-content transition-all duration-500' />
+                    <img src="/c-1.jpg" alt="profile" className='group-hover:scale-125 w-full h-full object-content transition-all duration-500' />
                 </div>
                 <div className="contant py-8 px-2">
                     <p className='text-center mt-3'>Authoritatively orchestrate superior channels after wireless portals. users after professional Continually morph state</p>

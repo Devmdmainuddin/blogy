@@ -3,13 +3,21 @@ import { BiDetail } from 'react-icons/bi';
 import { FaRegEdit } from 'react-icons/fa';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { Link, useLoaderData } from 'react-router-dom';
-import { useDeleteBlogsMutation, useGetBlogsQuery } from '../../../Feature/postsAPI/postApi';
+import { useDeleteBlogsMutation, useGetBlogsByEmailQuery, useGetBlogsQuery } from '../../../Feature/postsAPI/postApi';
 import Swal from 'sweetalert2';
+import useAuth from '../../../hook/useAuth';
+// import { useDispatch } from 'react-redux';
 
 
 const ManagePost = () => {
-
-  const { data, error, isLoading, } = useGetBlogsQuery()
+  const { user } = useAuth() || {}
+  const email = user?.email;
+  const { data, isLoading ,error, } = useGetBlogsByEmailQuery(user?.email);
+ console.log(email);
+ console.log(user?.email);
+//  if (email) {
+//   useDispatch(fetchBlogsByEmail(email));
+// }
   const [deleteProduct] = useDeleteBlogsMutation()
 
   const handleDelete = async (id) => {
